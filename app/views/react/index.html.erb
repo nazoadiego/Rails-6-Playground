@@ -1,0 +1,25 @@
+<h3>
+  <%= link_to "Go Back", root_path %>
+</h3>
+
+<div class="mt-12">
+
+  <h1>React Exercises</h1>
+  <ul class="mt-8">
+    <% @react.each do |exercise| %>
+
+      <li>
+
+        <%= link_to react_path(exercise) do %>
+          <h3>
+            <%= exercise.title %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>
