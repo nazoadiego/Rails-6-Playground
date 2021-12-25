@@ -1,5 +1,25 @@
-<h1>JavaScript Exercises</h1>
-<ul>
-  <li>
-  </li>
-</ul>
+<h3>
+  <%= link_to "Go Back", root_path %>
+</h3>
+
+<div class="mt-12">
+
+  <h1>JavaScript Exercises</h1>
+  <ul class="mt-8">
+    <% @javascript.each do |exercise| %>
+
+      <li>
+
+        <%= link_to javascript_path(exercise) do %>
+          <h3>
+            <%= exercise.title %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>
