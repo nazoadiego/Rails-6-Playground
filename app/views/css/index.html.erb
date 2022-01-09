@@ -1,0 +1,45 @@
+<h3>
+  <%= link_to "Go Back", root_path %>
+</h3>
+
+<div class="mt-12">
+
+  <h1>CSS Exercises</h1>
+
+  <h2>CSS Grid</h2>
+  <ul class="mt-8">
+    <% @css.each do |exercise| %>
+
+      <li>
+
+        <%= link_to css_path(exercise) do %>
+          <h3>
+            <%= exercise.title %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+  <h2>CSS Flexbox</h2>
+  <ul class="mt-8">
+    <% @css.each do |exercise| %>
+
+      <li>
+
+        <%= link_to css_path(exercise) do %>
+          <h3>
+            <%= exercise.title %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>
