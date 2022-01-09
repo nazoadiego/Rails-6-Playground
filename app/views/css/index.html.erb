@@ -6,15 +6,15 @@
 
   <h1>CSS Exercises</h1>
 
-  <h2>CSS Grid</h2>
-  <ul class="mt-8">
-    <% @css.each do |exercise| %>
+  <h2 class="mt-8">CSS Grid</h2>
+  <ul class="mt-4">
+    <% @css.where(subcategory: "CSS Grid").each do |exercise| %>
 
       <li>
 
         <%= link_to css_path(exercise) do %>
           <h3>
-            <%= exercise.title %>
+            <%= exercise.name %>
             <span>from <%= exercise.course %></span>
           </h3>
         <% end %>
@@ -24,15 +24,15 @@
     <% end %>
   </ul>
 
-  <h2>CSS Flexbox</h2>
-  <ul class="mt-8">
-    <% @css.each do |exercise| %>
+  <h2  class="mt-8">CSS Flexbox</h2>
+  <ul class="mt-4">
+    <% @css.where(subcategory: "Flexbox").each do |exercise| %>
 
       <li>
 
         <%= link_to css_path(exercise) do %>
           <h3>
-            <%= exercise.title %>
+            <%= exercise.name %>
             <span>from <%= exercise.course %></span>
           </h3>
         <% end %>
