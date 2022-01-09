@@ -7,7 +7,15 @@
 
   <h1>
     <%= @css.name %>
+
   </h1>
 
+  <%= case @css.id
+    when 1
+      render "css/grid/first"
+    else
+      "<p class='mt-2'>Create the render!</p>".html_safe
+    end
+  %>
 
 </div>
