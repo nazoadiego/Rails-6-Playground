@@ -1,33 +1,33 @@
-<h1>Rails 6 Playground</h1>
+<main class="flex h-full flex-col justify-center">
 
-<div class="mt-12">
+  <h1 class="text-center mb-8">Rails 6 Playground</h1>
 
+  <ul class="flex justify-evenly gap-5 flex-wrap">
 
-  <ul>
-    <li>
+    <div class="flex items-center justify-center min-h-[250px] bg-sky-600 rounded-xl basis-1/4">
+      <li>
+        <%= link_to javascript_index_path class: "block h-full" do %>
+          <h3>JavaScript Index</h3>
+        <% end  %>
+      </li>
+    </div>
 
-      <%= link_to javascript_index_path do %>
-        <h3>JavaScript Index</h3>
-      <% end  %>
+    <div class="flex items-center justify-center min-h-[250px] bg-sky-600 rounded-xl basis-1/4">
+      <li>
+        <%= link_to react_index_path do %>
+          <h3>React Index</h3>
+        <% end  %>
+      </li>
+    </div>
 
-    </li>
+    <div class="flex items-center justify-center min-h-[250px] bg-sky-600 rounded-xl basis-1/4">
+      <li>
+        <%= link_to css_index_path do %>
+          <h3>CSS Index</h3>
+        <% end  %>
+      </li>
+    </div>
 
-
-    <li>
-
-      <%= link_to react_index_path do %>
-        <h3>React Index</h3>
-      <% end  %>
-
-    </li>
-    <li>
-
-      <%= link_to css_index_path do %>
-        <h3>CSS Index</h3>
-      <% end  %>
-
-    </li>
   </ul>
 
-
-</div>
+</main>

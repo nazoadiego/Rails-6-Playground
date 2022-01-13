@@ -1,0 +1,25 @@
+.flexbox-navbar-exercise {
+
+  .header {
+    background-color: #E5CFA5;
+  }
+
+  header {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  a {
+    display: block;
+    transition: 0.4s ease;
+  }
+  a:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+}
