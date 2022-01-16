@@ -1,0 +1,47 @@
+<div class="flex justify-center">
+
+  <div class="calculator w-1/3 grid grid-cols-4 gap-0.5">
+    <div class="screen col-span-4">number</div>
+    <div class="button col-span-2">C</div>
+    <div class="button"><-</div>
+    <div class="button operator">%</div>
+    <div class="button">7</div>
+    <div class="button">8</div>
+    <div class="button">9</div>
+    <div class="button operator">x</div>
+    <div class="button">4</div>
+    <div class="button">5</div>
+    <div class="button">6</div>
+    <div class="button operator">-</div>
+    <div class="button">1</div>
+    <div class="button">2</div>
+    <div class="button">3</div>
+    <div class="button operator">+</div>
+    <div class="button col-span-3">0</div>
+    <div class="button operator">=</div>
+  </div>
+
+</div>
+
+<style>
+  .calculator {
+    background-color: black;
+    grid-template-rows: repeat(6, 1vr);
+  }
+  .screen {
+    padding: 2rem 0;
+  }
+  .button {
+    cursor: pointer;
+    user-select: none;
+    background-color: lightgrey;
+    font-size: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .operator {
+    background-color: rgb(251 146 60);
+  }
+</style>

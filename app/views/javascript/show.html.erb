@@ -1,13 +1,20 @@
-<h3>
+<h3 class="ml-8 pt-8">
   <%= link_to "Go Back", javascript_index_path %>
 </h3>
 
 <div class="mt-12">
 
 
-  <h1>
+  <h1 class="ml-8">
     <%= @javascript.title %>
   </h1>
 
+  <%= case @javascript.id
+    when 1
+      render "javascript/exercises/calculator"
+    else
+      "<h3 class='mt-2'>Create the render!</h3>".html_safe
+    end
+  %>
 
 </div>
