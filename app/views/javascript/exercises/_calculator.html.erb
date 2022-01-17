@@ -33,7 +33,7 @@ let runningTotal = 0;
 let buffer = "";
 
 // The previous operator
-let previousOperator;
+let previousOperator = null;
 const screen = document.querySelector(".screen");
 
 
@@ -51,6 +51,7 @@ function buttonClick(value) {
   } else {
     handleNumber(value);
   }
+  rerender();
 }
 
 function handleNumber(value) {
@@ -62,16 +63,64 @@ function handleNumber(value) {
     buffer += value;
   }
   // To update the buffer, you need a new function
-  rerender();
 }
 function handleSymbol(value) {
   switch (value) {
     case "C":
       buffer = "0";
       runningTotal = 0;
-      rerender();
+      previousOperator = null;
       break;
+    case "=":
+      if (previousOperator === null) {
+        return;
+      }
+      // Do the operation
+      flushOperator(parseInt(buffer));
+      previousOperator = null;
+      // Assign the result of the operation after turning it into a string
+      buffer = "" + runningTotal;
+      runningTotal = 0;
+      break;
+    case "<-":
+      if ( buffer.length === 1) {
+        buffer = "0";
+      } else {
+        buffer = buffer.substring(0, buffer.length - 1)
+      }
+      break
+    default:
+      handleMath(value)
+      break;
+  }
+}
 
+function handleMath(value) {
+  const intBuffer = parseInt(buffer);
+  if (runningTotal === 0) {
+    runningTotal = intBuffer;
+  } else {
+    flushOperator(intBuffer);
+  }
+  previousOperator = value;
+
+  buffer = "0";
+}
+
+function flushOperator(intBuffer) {
+  switch (previousOperator) {
+    case "+":
+      runningTotal += intBuffer;
+      break;
+    case "-":
+      runningTotal -= intBuffer;
+      break;
+    case "x":
+      runningTotal *= intBuffer;
+      break;
+    case "%":
+      runningTotal /= intBuffer;
+      break;
     default:
       break;
   }
