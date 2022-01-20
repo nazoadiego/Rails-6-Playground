@@ -22,8 +22,10 @@
 @layer components {
   .rounded-card {
     transition: 0.3s ease-in-out;
-    @apply block p-36 bg-sky-600 hover:bg-sky-500 rounded-xl shadow-xl;
+    @apply block p-36 bg-violet-600 hover:bg-violet-500 rounded-xl shadow-xl;
   }
+
+  /* Forms */
     .form-inputs .form-group {
     @apply mt-2;
   }
@@ -35,11 +37,11 @@
 
   .form-inputs input, textarea {
     color: black;
-    @apply mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500;
+    @apply mt-2 w-full border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500;
   }
 
   .form-select {
-    @apply text-black border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500;
+    @apply text-black border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500;
   }
 }
 @tailwind utilities;

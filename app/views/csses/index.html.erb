@@ -1,0 +1,89 @@
+<div class="flex justify-between p-8">
+
+
+  <h3>
+    <%= link_to "Go Back", root_path %>
+  </h3>
+
+  <label for="my-modal-2" class="btn btn-primary modal-button">New CSS</label>
+  <input type="checkbox" id="my-modal-2" class="modal-toggle">
+  <div class="modal">
+    <div class="modal-box">
+      <h3>New CSS Exercise</h3>
+      <%= simple_form_for @new_css, url: csses_path do |f| %>
+
+        <div class="form-inputs px-2">
+          <%= f.input :name %>
+          <%= f.input :course %>
+          <%= f.input :subcategory %>
+        </div>
+        <div class="modal-action">
+          <label for="my-modal-2" class="btn">Close</label>
+          <%= f.submit 'Create', class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="mt-12 px-8">
+
+  <h1>CSS Exercises</h1>
+
+  <h2 class="mt-8">CSS Grid</h2>
+  <ul class="mt-4">
+    <% @css.where(subcategory: "CSS Grid").each do |exercise| %>
+
+      <li>
+
+        <%= link_to css_path(exercise) do %>
+          <h3>
+            <%= exercise.name %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+  <h2  class="mt-8">CSS Flexbox</h2>
+  <ul class="mt-4">
+    <% @css.where(subcategory: "Flexbox").each do |exercise| %>
+
+      <li>
+
+        <%= link_to css_path(exercise) do %>
+          <h3>
+            <%= exercise.name %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+  <h2  class="mt-8">SVG</h2>
+  <ul class="mt-4">
+    <% @css.where(subcategory: "SVG").each do |exercise| %>
+
+      <li>
+
+        <%= link_to css_path(exercise) do %>
+          <h3>
+            <%= exercise.name %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>

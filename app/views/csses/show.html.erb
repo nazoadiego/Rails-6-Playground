@@ -1,5 +1,5 @@
 <h3 class="ml-8 pt-8">
-  <%= link_to "Go Back", css_index_path %>
+  <%= link_to "Go Back", csses_path %>
 </h3>
 
 <div class="mt-12">
@@ -11,13 +11,13 @@
 
   <%= case @css.id
     when 1
-      render "css/grid/css_grid"
+      render "csses/grid/css_grid"
     when 2
-      render "css/flexbox/flexbox_grid"
+      render "csses/flexbox/flexbox_grid"
     when 3
-      render "css/flexbox/second_flexbox_grid"
+      render "csses/flexbox/second_flexbox_grid"
     when 4
-      render "css/flexbox/flexbox_navbar"
+      render "csses/flexbox/flexbox_navbar"
     else
       "<p class='mt-2'>Create the render!</p>".html_safe
     end

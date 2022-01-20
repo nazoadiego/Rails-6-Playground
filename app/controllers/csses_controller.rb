@@ -1,6 +1,7 @@
-class CssController < ApplicationController
+class CssesController < ApplicationController
   def index
     @css = Css.all
+    @new_css = Css.new
   end
 
   def show
@@ -9,7 +10,6 @@ class CssController < ApplicationController
 
   def create
     @css = Css.new(css_params)
-    @css.user = current_user
     if @css.save
       redirect_to @css
     else
@@ -21,6 +21,6 @@ class CssController < ApplicationController
   private
 
   def css_params
-    params.require(:css).permit(:title, :course)
+    params.require(:css).permit(:name, :course, :subcategory)
   end
 end
