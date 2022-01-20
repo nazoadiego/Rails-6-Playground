@@ -6,7 +6,7 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*'
-  ],  
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -18,5 +18,6 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
+    require('daisyui'),
   ]
 }

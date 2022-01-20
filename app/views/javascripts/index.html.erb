@@ -1,0 +1,50 @@
+<div class="flex justify-between p-8">
+
+
+  <h3>
+    <%= link_to "Go Back", root_path %>
+  </h3>
+
+  <label for="my-modal-2" class="btn btn-primary modal-button">New JS</label>
+  <input type="checkbox" id="my-modal-2" class="modal-toggle">
+  <div class="modal">
+    <div class="modal-box">
+      <%= simple_form_for @new_javascript, url: javascripts_path do |f| %>
+
+        <div class="form-inputs px-2">
+          <%= f.input :title %>
+          <%= f.input :course %>
+        </div>
+        <div class="modal-action">
+          <label for="my-modal-2" class="btn">Close</label>
+          <%= f.submit 'Create', class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="mt-12 px-8">
+
+  <h1>Javascript Exercises</h1>
+
+  <ul class="mt-8">
+    <% @javascripts.each do |exercise| %>
+
+      <li>
+
+        <%= link_to javascript_path(exercise) do %>
+          <h3>
+            <%= exercise.title %>
+            <span>from <%= exercise.course %></span>
+          </h3>
+        <% end %>
+
+      </li>
+
+    <% end %>
+  </ul>
+
+</div>

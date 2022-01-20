@@ -27,6 +27,7 @@ require("channels")
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initCalculator } from "../components/calculator";
+import { initRockPaperScissors } from "../components/calculator";
 
 
 

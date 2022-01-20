@@ -1,5 +1,5 @@
 <h3 class="ml-8 pt-8">
-  <%= link_to "Go Back", javascript_index_path %>
+  <%= link_to "Go Back", javascripts_path %>
 </h3>
 
 <div class="mt-12">
@@ -12,6 +12,8 @@
   <%= case @javascript.id
     when 1
       render "javascript/exercises/calculator"
+    when 10
+      render "javascript/exercises/rock_paper_scissors"
     else
       "<h3 class='mt-2'>Create the render!</h3>".html_safe
     end
