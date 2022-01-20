@@ -1,76 +1,47 @@
-<div class="game w-1/2 flex flex-col items-center">
-  <h2>Computer Choice: <span id="computer-choice"></span></h2>
-  <h2>Your Choice: <span id="user-choice"></span></h2>
-  <h2>Result: <span id="result"></span></h2>
-
-  <div class="inline-flex">
-
-    <button class="btn btn-primary" id="Rock">
-      rock
-    </button>
-    <button class="btn btn-primary"id="Paper">
-      paper
-    </button>
-    <button class="btn btn-primary" id="Scissors">
-      scissors
-    </button>
-  </div>
+<div class="flex flex-col items-center">
+    <div id="choices"></div>
+    <h2 id="result"></h2>
 </div>
 
 <script>
-const computerChoiceDisplay = document.getElementById('computer-choice')
-const userChoiceDisplay = document.getElementById('user-choice')
-const resultDisplay = document.getElementById('result')
-const possibleChoices = document.querySelectorAll('button')
-let userChoice
-let computerChoice
-let result
+const resultDisplay = document.querySelector('#result')
+const choicesDisplay = document.querySelector('#choices')
+const choices = ['rock', 'paper', 'scissors']
 
 
-possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
-  userChoice = e.target.id
-  userChoiceDisplay.innerHTML = userChoice
-  generateComputerChoice()
-  getResults()
-}));
-
-function generateComputerChoice(params) {
-  const randomNumber = Math.floor(Math.random() * possibleChoices.length) + 1
-  // Or 3, it's the same thing
-  if (randomNumber === 1) {
-    computerChoice = "Rock"
-  }
-  if (randomNumber === 2) {
-    computerChoice = "Paper"
-  }
-  if (randomNumber === 3) {
-    computerChoice = "Scissors"
-  }
-  computerChoiceDisplay.innerHTML = computerChoice
+const handleClick = (e) => {
+  const userChoice = e.target.innerHTML
+  const computerChoice = choices[Math.floor(Math.random() * choices.length)]
+  getResults(userChoice, computerChoice)
 }
 
-function getResults() {
-  if (computerChoice === userChoice) {
-    result = "It's a draw!"
+choices.forEach(choice => {
+  const button = document.createElement('button')
+  let buttonClasses = ['btn', 'btn-primary', 'm-2'];
+  button.classList.add(...buttonClasses);
+  button.innerHTML = choice
+  button.addEventListener('click', handleClick)
+  choicesDisplay.appendChild(button)
+})
+
+const getResults = (userChoice, computerChoice) => {
+  switch (userChoice + computerChoice) {
+    case 'scissorspaper':
+    case 'rockscissors':
+    case 'paperrock':
+      resultDisplay.innerHTML = 'You chose ' + userChoice + ' and the computer chose ' + computerChoice + ' , YOU WIN!'
+      break
+    case 'paperscissors':
+    case 'scissorsrock':
+    case 'rockpaper':
+      resultDisplay.innerHTML = 'You chose ' + userChoice + ' and the computer chose ' + computerChoice + ' , YOU LOSE!'
+      break
+    case 'scissorsscissors':
+    case 'rockrock':
+    case 'paperpaper':
+      resultDisplay.innerHTML = 'You chose ' + userChoice + ' and the computer chose ' + computerChoice + ' , ITS A DRAW!'
+      break
   }
-  if (computerChoice === "Rock" && userChoice === "Paper") {
-    result = "You win!"
-  }
-  if (computerChoice === "Paper" && userChoice === "Scissors") {
-    result = "You win!"
-  }
-  if (computerChoice === "Scissors" && userChoice === "Rock") {
-    result = "You win!"
-  }
-  if (computerChoice === "Paper" && userChoice === "Rock") {
-    result = "You lose!"
-  }
-  if (computerChoice === "Scissors" && userChoice === "Paper") {
-    result = "You lose!"
-  }
-  if (computerChoice === "Rock" && userChoice === "Scissors") {
-    result = "You lose!"
-  }
-  resultDisplay.innerHTML = result
 }
+
 </script>
