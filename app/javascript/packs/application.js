@@ -27,15 +27,17 @@ require("channels")
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initCalculator } from "../components/calculator";
-import { initRockPaperScissors } from "../components/calculator";
-
-
+import { initRockPaperScissors } from "../components/rockPaperScissors";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  let calculator = document.querySelector(".calculator")
+  const calculator = document.querySelector(".calculator")
+  const rockPaperScissors = document.querySelector(".rock-paper-scissors")
   if (calculator) {
     initCalculator();
+  }
+  if (rockPaperScissors) {
+    initRockPaperScissors();
   }
 });
